@@ -43,3 +43,25 @@ const gameBoard = (() => {
         clear
     };
 })();
+
+const Player = (sign) => {
+    let _sign = sign;
+
+    const getSign = () => _sign;
+    const setSign = (sign, active) => {
+        _sign = sign;
+        const p = document.querySelector(`.btn-p.${sign.toLowerCase()}`);
+        if (active) {
+            p.classList.add("selected");
+            p.classList.remove("not-selected");
+        } else {
+            p.classList.remove("selected");
+            p.classList.add("not-selected");
+        }
+    };
+
+    return {
+        getSign,
+        setSign
+    };
+};
